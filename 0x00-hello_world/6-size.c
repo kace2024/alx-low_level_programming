@@ -2,8 +2,10 @@
 /**
  * main - Entry point
  *
+ * Description: using sizeof to print the size of various types.
+ *
  * Return: Always 0 (success)
- */ 
+*/ 
 int main(void)
 {
 	printf("Size of a char: %ad byte(s)\n", sizeof(char));
