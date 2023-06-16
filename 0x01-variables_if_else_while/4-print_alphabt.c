@@ -15,8 +15,7 @@ int main(void)
 
 	for (letter = 'a'; letter <= 'z'; letter++)
 	{
-		if (letter != 'q' && letter != 'e') /* only print the letter if it's not q or e */
-
+		if (letter != 'q' && letter != 'e')
 		{
 
 			putchar(letter); /* print the letter */
