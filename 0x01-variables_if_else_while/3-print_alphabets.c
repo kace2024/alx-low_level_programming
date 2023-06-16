@@ -3,7 +3,6 @@
  * Auth: KACEMI ABDALLAH
  */
 #include <stdio.h>
-
 /**
  * main - prints alphabet in lowercase, and then in uppercase.
  *
@@ -19,7 +18,6 @@ int main(void)
 
 	for (letter = 'A' ; letter <= 'z' ; letter++)
 		putchar(letter);
-
 
 	putchar('\n');
 
