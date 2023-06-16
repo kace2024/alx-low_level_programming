@@ -16,10 +16,13 @@ int main(void)
 	for (letter = 'a'; letter <= 'z'; letter++)
 	{
 		if (letter != 'q' && letter != 'e') /* only print the letter if it's not q or e */
+
 		{
+
 			putchar(letter); /* print the letter */
+
 		}
 	}
 	putchar('\n'); /* print a newline character at the end */
-	return 0;
+	return (0);
 }
