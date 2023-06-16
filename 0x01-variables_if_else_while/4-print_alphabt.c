@@ -9,17 +9,17 @@
  *
  * Return: Always 0.
 */
-        int main(void)
+int main(void)
 {
-    char letter;  /* variable to store each letter of the alphabet */
+	char letter;  /* variable to store each letter of the alphabet */
 
-    for (letter = 'a'; letter <= 'z'; letter++)
-    {
-        if (letter != 'q' && letter != 'e') /* only print the letter if it's not q or e */
-        {
-            putchar(letter); /* print the letter */
-        }
-    }
-    putchar('\n'); /* print a newline character at the end */
-    return 0;
+	for (letter = 'a'; letter <= 'z'; letter++)
+	{
+		if (letter != 'q' && letter != 'e') /* only print the letter if it's not q or e */
+		{
+			putchar(letter); /* print the letter */
+		}
+	}
+	putchar('\n'); /* print a newline character at the end */
+	return 0;
 }
