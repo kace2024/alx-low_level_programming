@@ -10,25 +10,32 @@
 */
 int main(void)
 {
-	int first_digit, second_digit;
+	int i, j;
 
-	for (first_digit = 0; first_digit < 100; first_digit++)
+	for (i = 0; i < 100; i++)
 	{
-		for (second_digit = first_digit + 1; second_digit < 100; second_digit++)
+		 for (j = i + 1; j < 100; j++)
 		{
-			putchar(first_digit + '0');
-			putchar(second_digit + '0');
+			if (i != j && i < j)
+			{
+				putchar((i / 10) + '0');
+				putchar((i % 10) + '0');
+				putchar(',');
+				putchar(' ');
+				putchar((j / 10) + '0');
+				putchar((j % 10) + '0');
 
-			if (first_digit != 98 || second_digit != 99)
-				continue;
 
-			putchar(',');
-			putchar(' ');
-		}
-	}
+				if (i == 98 && j == 99)
+					continue;
+
+				putchar(',');
+				putchar(' ');
+			 }
+			}
+		 }
 
 	putchar('\n');
-
 	return (0);
 
 }
