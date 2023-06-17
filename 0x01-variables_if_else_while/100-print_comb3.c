@@ -10,23 +10,25 @@
 */
 int main(void)
 {
-	int i, j, k;
+	 int first_digit, second_digit;
 
-	for (i = 0; i < 8; i++)
-	{
-		 k = j + 1;
-		 while (k <= 9)
+         for (first_digit = 0; first_digit < 10; first_digit++)
+         {
+		  for (second_digit = first_digit + 1; second_digit < 10; second_digit++)
+		  {
+			  putchar(first_digit + '0');
+	                  putchar(second_digit + '0');
 
-		 putchar(j + '0');
-		 putchar(k + '0');
+			  if (first_digit != 8 || second_digit != 9)
+				  continue;
 
-		 if (i != 7 || j != 8 || k != 9)
+			  putchar(',');
+		          putchar(' ');
 
-		 putchar(',');
-		 putchar(' ');
+		  }
+	 }
 
-		 k++;
-	}
+
 	putchar('\n');
 
 	return (0);
