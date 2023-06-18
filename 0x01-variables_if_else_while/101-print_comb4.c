@@ -9,7 +9,7 @@
  *
  * Return: Always 0.
 */
-int main()
+int main(void)
 {
 	int i, j, k;
 
@@ -19,7 +19,7 @@ int main()
 		{
 			for (k = j + 1; k < 10; k++)
 			{
-				if ( i != j && j != k && i != k)
+				if (i != j && j != k && i != k)
 				{
 					putchar(i + '0');
 					putchar(j + '0');
