@@ -1,36 +1,39 @@
 /*
- * File: 2-print_alphabet.c
+ * File: 101-print_comb4.c
  * Auth: KACEMI ABDALLAH
  */
 #include <stdio.h>
 
 /**
- * main - Prints the alphabet in lowercase.
+ * main - Prints all possible different combinations of three digits.
  *
  * Return: Always 0.
 */
 int main(void)
 {
-	int first_digit, second_digit, third_digit;
+	int i, j, k;
 
-	for (first_digit = 0; first_digit <= 7; first_digit++)
+	for (i = 0; i < 10; i++)
 	{
-		 for (second_digit = first_digit + 1; second_digit <= 8; second_digit++)
-		 {
-		  for (third_digit = second_digit + 1; third_digit <= 9; third_digit++)
-		  {
-			putchar(first_digit + '0');
-			putchar(second_digit + '0');
-			putchar(third_digit + '0');
-			if (first_digit < 7 || second_digit < 8 || third_digit < 9)
-
-			
-			putchar(',');
-			putchar('');
-			}
+		for (j = i + 1; j < 10; j++)
+		{
+			for (k = j + 1; k < 10; k++)
+			{
+				if ( i != j && j != k && i != k)
+				{
+					putchar(i + '0');
+					putchar(j + '0');
+					putchar(k + '0');
+				if (i != 7 || j != 8 || k != 9)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+				}
 			}
 		}
-	putchar('\n');
+	}
 
 	return (0);
+
 }
