@@ -1,4 +1,4 @@
-#include <stdio>
+#include <stdio.h>
 /**
  * add - Adds two integers and returns the result.
  * @num1: The first integer.
