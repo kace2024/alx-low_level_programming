@@ -1,32 +1,49 @@
 #include "main.h"
+
 /**
- * print_times_table - Prints the n times table starting with 0.
- * @n: The number for which to print the times table.
- * return: Number matrix
+ * print_times_table - Prints the n times table
+ * @n: The number for which to print the times table
  */
 void print_times_table(int n)
 {
-    int row, column, product;
+	int i, j, result;
 
-    if (n < 0 || n > 15)
-        return;
+	if (n > 15 || n < 0)
+		return;
 
-    for (row = 0; row <= n; row++)
-    {
-        for (column = 0; column <= n; column++)
-        {
-            product = row * column;
+	for (i = 0; i <= n; i++)
+	{
+		for (j = 0; j <= n; j++)
+		{
+			result = i * j;
 
-            if (column == 0)
-            {
-                printf("%2d", product);
-            }
-            else
-            {
-                printf(", %3d", product);
-            }
-        }
-
-        printf("\n");
-    }
+			if (j == 0)
+				_putchar('0');
+			else if (result < 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(result + '0');
+			}
+			else if (result < 100)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(result / 10 + '0');
+				_putchar(result % 10 + '0');
+			}
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(result / 100 + '0');
+				_putchar((result / 10) % 10 + '0');
+				_putchar(result % 10 + '0');
+			}
+		}
+		_putchar('\n');
+	}
 }
