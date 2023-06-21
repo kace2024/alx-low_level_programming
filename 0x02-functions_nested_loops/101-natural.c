@@ -1,33 +1,24 @@
 #include <stdio.h>
 
-int main() {
-    int limit = 1024;
-    int sum = 0;
+/**
+ * main - Prints the sum of all multiples of 3 or up to 1024
+ *
+ * Return: Always (Success)
+ */
+int main(void)
+{
+	int i, z = 0;
 
-    for (int i = 1; i < limit; i++) {
-        if (i % 3 == 0 || i % 5 == 0) {
-            sum += i;
-        }
-    }
+	while (i < 1024)
+	{
+		if ((i % 3 == 0) || (i % 5 == 0))
+		{
+			z += i;
+		}
 
-    // Print the sum using putchar()
-    int temp = sum;
-    int digits = 0;
+		i++;
+	}
 
-    // Count the number of digits in the sum
-    while (temp != 0) {
-        temp /= 10;
-        digits++;
-    }
-
-    // Convert each digit of the sum to a character and print it
-    for (int i = digits - 1; i >= 0; i--) {
-        int digit = sum % 10;
-        sum /= 10;
-        putchar(digit + '0');
-    }
-
-    putchar('\n');
-
-    return 0;
+	printf("%d\n", z);
+	return (0);
 }
