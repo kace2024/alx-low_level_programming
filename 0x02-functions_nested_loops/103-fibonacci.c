@@ -1,14 +1,25 @@
-def fibonacci_sum(limit):
-    a, b = 1, 2
-    sum_even = 0
+#include <stdio.h>
 
-    while a <= limit:
-        if a % 2 == 0:
-            sum_even += a
-        a, b = b, a + b
-    
-    return sum_even
+/**
+ * main - Prints the sum of even-valued terms in the Fibonacci sequence
+ *        not exceeding 4,000,000
+ *
+ * Return: 0
+ */
 
-limit = 4000000
-sum_even = fibonacci_sum(limit)
-print(sum_even)
+int main(void)
+{
+	int i = 0;
+	long j = 1, k = 2, sum = k;
+
+	while (k + j < 4000000)
+	{
+	k += j;
+	if (k % 2 == 0)
+	sum += k;
+	j = k - j;
+	++i;
+	}
+	printf("%ld\n", sum);
+	return (0);
+}
