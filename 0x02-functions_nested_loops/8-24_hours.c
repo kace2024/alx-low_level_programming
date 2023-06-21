@@ -5,22 +5,16 @@
  * / 10 allows second digit to rotate
  * for loop break before passing 24:00
  * return: 24 hour clock line by line
- * */
+ */
 void jack_bauer(void)
 {
-    int hour, minute;
+    int h, m;
 
-    for (hour = 0; hour < 24; hour++)
+    for (h = 0; h < 24; h++)
     {
-        for (minute = 0; minute < 60; minute++)
+        for (m = 0; m < 60; m++)
         {
-		_putchar((hour / 10) + '0');
-		_putchar((hour % 10) + '0');
-		_putchar(':');
-		_putchar((minute / 10) + '0');
-		_putchar((minute % 10) + '0');
-		_putchar('\n');
-
-       }
+            printf("%02d:%02d\n", h, m);
+        }
     }
 }
