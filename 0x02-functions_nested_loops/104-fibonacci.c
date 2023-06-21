@@ -37,7 +37,6 @@ int main(void)
 		}
 
 	printf("%lu%010lu", half1, half2);
-
 	if (count != 98)
 		printf(", ");
 
