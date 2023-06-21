@@ -8,20 +8,20 @@
 
 int main(void)
 {
-    int i;
-    long j = 1, k = 2;
+	int i;
+	long j = 1, k = 2;
 
-    printf("%ld, %ld", j, k);
+	printf("%ld, %ld", j, k);
 
-    for (i = 2; i < 52; i++)
-    {
-        long temp = k;
-        k = j + k;
-        j = temp;
-        printf(", %ld", k);
-    }
+	for (i = 2; i < 52; i++)
+	{
+		long temp = k;
+		k = j + k;
+		j = temp;
+		printf(", %ld", k);
+	}
 
-    printf("\n");
+	printf("\n");
 
-    return 0;
+	return (0);
 }
