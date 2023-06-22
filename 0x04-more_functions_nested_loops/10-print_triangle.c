@@ -3,16 +3,18 @@
 /**
  * print_triangle - prints a triangle
  * @size: the size of the triangle
- *
  * Return: empty
  */
+
 void print_triangle(int size)
+
 {
+
 	int x, y, z;
 
 	if (size <= 0)
 	{
-		_putchar('\n');
+	_putchar('\n');
 	}
 	else
 	{
