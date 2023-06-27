@@ -1,26 +1,26 @@
-#include <main.h>
+#include <stdio.h>
 
 /**
- * _puts - Prints a string followed by a new line.
- * @str: Pointer to the string to be printed.
- *
- * Description: This function takes a pointer to a string as a parameter and
- * prints the characters of the string followed by a new line to the standard
- * output (stdout). It uses the `write` system call to write the characters
- * individually. The function iterates through the characters of the string
- * until it reaches the null terminator '\0', and for each character, it
- * writes it to the standard output. Finally, it writes a newline character
- * '\n' to start a new line.
+ * print_rev - Prints a string in reverse followed by a new line.
+ * @s: Pointer to the string to be printed in reverse.
  */
-void _puts(char *str)
+void print_rev(char *s)
 {
-	int i = 0;
+	int length = 0;
+	int i;
 
-	while (str[i] != '\0')
+	// Calculate the length of the string
+	while (s[length] != '\0')
 	{
-		write(1, &str[i], 1);
-		i++;
+		length++;
 	}
 
-	write(1, "\n", 1);
+	// Print the characters in reverse order
+	for (i = length - 1; i >= 0; i--)
+	{
+		putchar(s[i]);
+	}
+
+	// Print a new line character
+	putchar('\n');
 }
