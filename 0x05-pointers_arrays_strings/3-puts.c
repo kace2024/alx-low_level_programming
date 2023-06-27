@@ -12,11 +12,11 @@
  * writes it to the standard output. Finally, it writes a newline character
  * '\n' to start a new line.
  */
-void _puts(char *str) 
+void _puts(char *str)
 {
 	int i = 0;
 
-	while (str[i] != '\0') 
+	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
 		i++;
