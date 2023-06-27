@@ -2,7 +2,8 @@
 
 /**
  * puts2 - Prints every other character of a string.
- * @str: Pointer to the string.
+ * followed b a new line
+ * @str: string to print the chars from.
  */
 void puts2(char *str)
 {
