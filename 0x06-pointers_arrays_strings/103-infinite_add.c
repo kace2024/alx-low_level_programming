@@ -30,40 +30,47 @@ void rev_string(char *n)
  * @n2: The second number as a string.
  * @r: The buffer to store the result.
  * @size_r: The size of the buffer.
- *
- * Return: A pointer to the result string, or 0 if the result cannot be stored
- *         within the buffer.
+ * Return: pointer to calling function.
  */
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r) 
 {
-	int len1 = strlen(n1);
-	int len2 = strlen(n2);
-	int carry = 0;
-	int i = len1 - 1;
-	int j = len2 - 1;
-	int k = size_r - 1;
+	int overflow = 0, i = 0, j = 0, digits = 0;
+	int vall = 0, temp_tot = 0;
 
-	if (len1 + 1 > size_r || len2 + 1 > size_r)
+	while (*(n1 +i) != '\0')
+		i++;
+	while (*(n2 +j) != '\0')
+		j++;
+	i--;
+	i--;
+	if (j >= size_r || i >= size_r)
 		return (0);
-
-	r[size_r - 1] = '\0';
-
-	while (i >= 0 || j >= 0 || carry > 0)
+	while (j >= 0 || i >= 0 || overflow == 1)
 	{
-		int digit1 = (i >= 0) ? (n1[i] - '0') : 0;
-		int digit2 = (j >= 0) ? (n2[j] - '0') : 0;
-		int sum = digit1 + digit2 + carry;
-
-		if (k < 0)
+		if (i < 0)
+			vall = 0;
+		else
+			vall = *(n1 + i) - '0';
+		if (j < 0)
+			val2 = 0;
+		else
+			val2 = *(n2 + j) - '0';
+		temp_tot = val1 + val2 + overflow;
+		if (temp_tot >= 10)
+			overflow = 1;
+		else
+			overflow = 0;
+		if (digits >= (size_r - 1))
 			return (0);
-
-		carry = sum / 10;
-		r[k] = (sum % 10) + '0';
-
+		*(r + digits) = (temp_tot % 10) + '0';
+		digits++;
+		j--:
 		i--;
-		j--;
-		k--;
 	}
-
-	return &r[k + 1];
+	if (digits == size-r)
+		return (0);
+	*(r + digits) = '\0';
+	rev-string(r);
+	return (r);
 }
