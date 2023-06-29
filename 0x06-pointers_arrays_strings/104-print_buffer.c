@@ -1,46 +1,28 @@
-#include <stdio.h>
-#include <ctype.h>
+#include "main.h"
 
-void print_buffer(char *b, int size)
+/**
+ * leet - Encodes a string into 1337.
+ * @str: Pointer to the string.
+ *
+ * Return: Pointer to the resulting string.
+ */
+char *leet(char *s)
 {
-    int i, j;
+	char a[] = "aAeEoOtTlL";
+	char n[] = "4433007711";
+	int i = 0;
+	int j;
 
-    if (size <= 0)
-    {
-        printf("\n");
-        return;
-    }
-
-    for (i = 0; i < size; i += 10)
-    {
-        printf("%08x: ", i);
-
-        for (j = 0; j < 10; j++)
-        {
-            if (i + j < size)
-                printf("%02x", (unsigned char)b[i + j]);
-            else
-                printf("  ");
-
-            if (j % 2 != 0)
-                printf(" ");
-        }
-
-        for (j = 0; j < 10; j++)
-        {
-            if (i + j < size)
-            {
-                if (isprint(b[i + j]))
-                    printf("%c", b[i + j]);
-                else
-                    printf(".");
-            }
-            else
-            {
-                printf(" ");
-            }
-        }
-
-        printf("\n");
-    }
+	while (*(s + i) != '\0')
+	{
+		for (j = 0; j <= 9; j++)
+		{
+			if (*(s + i) == a[j])
+			{
+				*(s + i) = n[j];
+			}
+		}
+		i++;
+	}
+	return (s);
 }
