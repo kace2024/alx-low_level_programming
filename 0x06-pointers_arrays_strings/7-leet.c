@@ -6,23 +6,23 @@
  *
  * Return: Pointer to the resulting string.
  */
-char *leet(char *str)
+char *leet(char *s)
 {
-        int i, j;
-        char letters[] = "aAeEoOtTlL";
-        char leet[] = "4433007711";
+        char a[] = "aAeEoOtTlL";
+        char n[] = "4433007711";
+        int i = 0;
+        int j;
 
-	for (i = 0; str[i] != '\0'; i++)
-	{
-                for (j = 0; letters[j] != '\0'; j++)
+        while (*(s + i) != '\0')
+        {
+                for (j = 0; j <= 9; j++)
                 {
-                        if (str[i] == letters[j])
+                        if (*(s + i) == a[j])
                         {
-                                str[i] = leet[j];
-				break;
+                                *(s + i) = n[j];
                         }
                 }
+                i++;
         }
-
-        return (str);
+        return (s);
 }
