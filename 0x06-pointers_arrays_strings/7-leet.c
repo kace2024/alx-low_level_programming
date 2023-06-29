@@ -1,10 +1,9 @@
 #include "main.h"
-
 /**
- * leet - Encodes a string into 1337.
- * @str: Pointer to the string.
+ * leet - change vowels to numbers.
+ * @s: analized string.
  *
- * Return: Pointer to the resulting string.
+ * Return: String with all vowels changed.
  */
 char *leet(char *s)
 {
@@ -20,7 +19,7 @@ char *leet(char *s)
                         if (*(s + i) == a[j])
                         {
                                 *(s + i) = n[j];
-                        }
+			}
                 }
                 i++;
         }
