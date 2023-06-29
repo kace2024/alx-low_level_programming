@@ -8,48 +8,36 @@
  *
  * Return: A pointer to the result, or 0 if the result cannot fit in the buffer.
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+char *infinite_add(char *n1, char *n2, char *r, int size_r) 
 {
-    int len1 = 0, len2 = 0, max_len = 0, sum = 0, carry = 0;
-    int i, j;
+	int len1 = strlen(n1);
+	int len2 = strlen(n2);
+	int carry = 0;
+	int i = len1 - 1;
+	int j = len2 - 1;
+	int k = size_r - 1;
 
-    // Calculate the lengths of the input numbers
-    while (n1[len1] != '\0')
-        len1++;
-    while (n2[len2] != '\0')
-        len2++;
+	if (len1 + 1 > size_r || len2 + 1 > size_r)
+		return (0);
 
-    // Determine the maximum length between the two numbers
-    max_len = (len1 > len2) ? len1 : len2;
+	r[size_r - 1] = '\0';
 
-    // Check if the result can fit in the buffer
-    if (size_r < max_len + 1)
-        return 0;
+	while (i >= 0 || j >= 0 || carry > 0)
+	{
+		int digit1 = (i >= 0) ? (n1[i] - '0') : 0;
+		int digit2 = (j >= 0) ? (n2[j] - '0') : 0;
+		int sum = digit1 + digit2 + carry;
 
-    // Add the numbers digit by digit
-    for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry; i--, j--)
-    {
-        int digit1 = (i >= 0) ? n1[i] - '0' : 0;
-        int digit2 = (j >= 0) ? n2[j] - '0' : 0;
+		if (k < 0)
+			return (0);
 
-        sum = digit1 + digit2 + carry;
-        carry = sum / 10;
-        sum %= 10;
+		carry = sum / 10;
+		r[k] = (sum % 10) + '0';
 
-        r[max_len] = sum + '0';
-        max_len--;
-    }
+		i--;
+		j--;
+		k--;
+	}
 
-    // Null-terminate the result string
-    r[len1 > len2 ? len1 : len2] = '\0';
-
-    // If there is remaining carry, shift the result and add the carry
-    if (carry)
-    {
-        for (i = len1 > len2 ? len1 : len2; i >= 0; i--)
-            r[i + 1] = r[i];
-        r[0] = carry + '0';
-    }
-
-    return (r);
+	return &r[k + 1];
 }
