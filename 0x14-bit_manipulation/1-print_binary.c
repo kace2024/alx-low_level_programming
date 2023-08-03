@@ -1,8 +1,11 @@
 #include "main.h"
 
+/* Function to print a character */
+int _putchar(char c);
+
 /**
- * print_binary - prints the binary equivalent of a decimal number
- * @n: number to print in binary
+ * print_binary - Prints the binary representation of a number.
+ * @n: The number to print in binary.
  */
 void print_binary(unsigned long int n)
 {
