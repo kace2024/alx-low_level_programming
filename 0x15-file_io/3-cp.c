@@ -1,8 +1,6 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include "main.h"
 
 /**
  * main - Copies the content of a file to another file.
@@ -66,3 +64,4 @@ int main(int argc, char *argv[])
 
     return (0);
 }
+
