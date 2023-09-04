@@ -1,23 +1,53 @@
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-char *create_buffer(char *file);
-void close_file(int file(int fd);
-void close_file(int fd);
-
 /**
- * create_buffer - Allocates 1024 bytes for a buffer.
-@@ -51,10 +51,10 @@ void close_file(int fd)
+ * main - Copies the content of a file to another file.
+ * @argc: The number of arguments passed to the program.
+ * @argv: An array of strings containing the arguments passed to the program.
  *
- * Return: 0 on success.
- *
- * Description: If the argument count is incorrect, the program will exit with code 97.
- * If the file_from does not exist or cannot be read, the program will exit with code 98.
- * If the file_to cannot be created or written to, the program will exit with code 99.
- * If either the file_to or file_from cannot be closed, the program will exit with code 100.
- * Description: If the argument count is incorrect - exit code 97.
- * If file_from does not exist or cannot be read - exit code 98.
- * If file_to cannot be created or written to - exit code 99.
- * If file_to or file_from cannot be closed - exit code 100.
+ * Return: 0 on success, 1 on failure.
  */
 int main(int argc, char *argv[])
 {
+    int fd_from, fd_to, bytes_read, bytes_written;
+    char buffer[1024];
+    if (argc != 3)
+    {
+        dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+        exit(97);
+    }
+    fd_from = open(argv[1], O_RDONLY);
+    if (fd_from == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+        exit(98);
+    }
+    fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+    if (fd_to == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+        exit(99);
+    }
+    while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
+    {
+        bytes_written = write(fd_to, buffer, bytes_read);
+        if (bytes_written != bytes_read)
+        {
+            dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+            exit(99);
+        }
+    }
+    if (close(fd_from) == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+        exit(100);
+    }
+    if (close(fd_to) == -1)
+    {
+        dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+        exit(100);
+    }
+    return 0;
+}
