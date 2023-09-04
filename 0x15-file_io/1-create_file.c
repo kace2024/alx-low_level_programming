@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "main.h"
+
 /**
  * create_file - Creates a file.
  * @filename: The name of the file to create.
